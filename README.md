@@ -43,3 +43,10 @@ Steps:
 4. To convert the analysis data to PDF format, issue the command: `./dotPic-fileConverter.sh /tmp/netflix-rss/trace-analysis pdf`
 5. Now there should be a PDF file representing the plotted monitored traces in the `/tmp/netflix-rss/trace-analysis pdf` folder.
 6. 
+
+### Customizing the monitoring
+If you want to change the configuration for the monitoring right from the beginning you can provide your own configuration files (`kieker.monitoring.properties`, `aop.xml`). To do so, place them in the following directories:
+* `/tmp/netflix-rss/{edge|eureka|middletier}/config/kieker.monitoring.properties`
+* `/tmp/netflix-rss/{edge|eureka|middletier}/config/META-INF/aop.xml`
+
+These files will replace the default configuration.
