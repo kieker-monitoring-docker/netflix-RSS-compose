@@ -24,7 +24,7 @@ To test the example application on your machine, you can open the URLs:
 1. [http://localhost:8080/eureka](http://localhost:8080/eureka)
 2. [http://localhost:9090/jsp/rss.jsp](http://localhost:9090/jsp/rss.jsp)
 
-When the system has started properly (usually after 2-3 min) you can add RSS links to the input field on the second URL [2]. and see them in the listing below.
+When the system has started properly (usually after 2-3 min) you can add RSS links to the input field on the second URL ([http://localhost:9090/jsp/rss.jsp](http://localhost:9090/jsp/rss.jsp)). and see them in the listing below.
 
 ## How to use the example for monitoring
 Will be added soon
