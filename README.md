@@ -1,4 +1,4 @@
-# Netflix-RSS Example instrumented with Kieker
+# Netflix-RSS Example with Kieker
 
 As the netflix-RSS example consists of currently three containers (`netflix-RSS-eureka`, `netflix-RSS-middletier`, `netflix-RSS-edge`), we need some way to interconnect them in the docker context. To achieve this, we use Docker Compose (https://www.docker.com/docker-compose).
 
