@@ -1,0 +1,34 @@
+tomcat:
+  image: kieker/netflix-rss-eureka:latest
+  name: tomcat
+  hostname: "tomcat"
+  ports:
+    - "8080:8080"
+  privileged: true
+  volumes:
+    - /tmp/netflix-rss/eureka/logs:/opt/kieker/logs
+    - /tmp/netflix-rss/eureka/config:/opt/kieker/config
+    
+
+middletier:
+  image: kieker/netflix-rss-middletier:latest
+  name: middletier
+  hostname: "middletier"
+  links:
+    - tomcat:tomcat
+  volumes:
+    - /tmp/netflix-rss/middletier/logs:/opt/kieker/logs
+    - /tmp/netflix-rss/middletier/config:/opt/kieker/config    
+
+edge:
+  image: kieker/netflix-rss-edge:latest
+  name: edge
+  hostname: "edge"
+  links:
+    - tomcat:tomcat
+    - middletier:middletier
+  ports: 
+    - "9090:9090"
+  volumes:
+    - /tmp/netflix-rss/edge/logs:/opt/kieker/logs
+    - /tmp/netflix-rss/edge/config:/opt/kieker/config     
