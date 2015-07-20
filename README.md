@@ -26,13 +26,13 @@ To test the example application on your machine, you can open the URLs:
 
 When the system has started properly (usually after 2-3 min) you can add RSS links to the input field on the second site ([http://localhost:9090/jsp/rss.jsp](http://localhost:9090/jsp/rss.jsp)) and see them in the listing below.
 
-## How to use the example for monitoring
-After having added/removed some feeds, the log files for the three containers can be found in `/tmp/netflix-rss/{edge|eureka|middletier}/logs`.
-These logs can be used for a trace analysis by Kieker.
-
-To be able to do a trace analysis you have to download and extract the Kieker release ([http://kieker-monitoring.net](http://kieker-monitoring.net)).
+## How to use this example for analysis
+As the containers are instrumented with Kieker, the monitoring logs can be found in `/tmp/netflix-rss/{edge|eureka|middletier}/logs`.
+This data can be used for a trace analysis for example.
 
 ### Trace analysis with Kieker
+To be able to do a trace analysis you have to download and extract the Kieker release ([http://kieker-monitoring.net](http://kieker-monitoring.net)).
+
 This is an example of what you could do with the data. For further details on what else you can do with the monitored data, please refer to the Kieker documentation ([http://kieker-monitoring.net/documentation/](http://kieker-monitoring.net/documentation/)).
 
 Steps:
@@ -42,4 +42,4 @@ Steps:
 3. Execute `./trace-analysis.sh -i $(find "/tmp/netflix-rss" -type d -name kieker-*) -o "/tmp/netflix-rss/trace-analysis" --plot-Deployment-Operation-Dependency-Graph --ignore-invalid-traces` to do the trace analysis.
 4. To convert the analysis data to PDF format, issue the command: `./dotPic-fileConverter.sh /tmp/netflix-rss/trace-analysis pdf`
 5. Now there should be a PDF file representing the plotted monitored traces in the `/tmp/netflix-rss/trace-analysis pdf` folder.
-
+6. 
