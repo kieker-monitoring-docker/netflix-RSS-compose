@@ -24,7 +24,22 @@ To test the example application on your machine, you can open the URLs:
 1. [http://localhost:8080/eureka](http://localhost:8080/eureka)
 2. [http://localhost:9090/jsp/rss.jsp](http://localhost:9090/jsp/rss.jsp)
 
-When the system has started properly (usually after 2-3 min) you can add RSS links to the input field on the second URL ([http://localhost:9090/jsp/rss.jsp](http://localhost:9090/jsp/rss.jsp)). and see them in the listing below.
+When the system has started properly (usually after 2-3 min) you can add RSS links to the input field on the second site ([http://localhost:9090/jsp/rss.jsp](http://localhost:9090/jsp/rss.jsp)) and see them in the listing below.
 
 ## How to use the example for monitoring
-Will be added soon
+After having added/removed some feeds, the log files for the three containers can be found in `/tmp/netflix-rss/{edge|eureka|middletier}/logs`.
+These logs can be used for a trace analysis by Kieker.
+
+To be able to do a trace analysis you have to download and extract the Kieker release ([http://kieker-monitoring.net](http://kieker-monitoring.net)).
+
+### Trace analysis with Kieker
+This is an example of what you could do with the data. For further details on what else you can do with the monitored data, please refer to the Kieker documentation ([http://kieker-monitoring.net/documentation/](http://kieker-monitoring.net/documentation/)).
+
+Steps:
+
+1. Change into the `bin` folder in the extracted Kieker release folder.
+2. Create a folder where the output file should be stored (in this case we assume this to be `/tmp/netflix-rss/trace-analysis`)
+3. Execute `./trace-analysis.sh -i $(find "/tmp/netflix-rss" -type d -name kieker-*) -o "/tmp/netflix-rss/trace-analysis" --plot-Deployment-Operation-Dependency-Graph --ignore-invalid-traces` to do the trace analysis.
+4. To convert the analysis data to PDF format, issue the command: `./dotPic-fileConverter.sh /tmp/netflix-rss/trace-analysis pdf`
+5. Now there should be a PDF file representing the plotted monitored traces in the `/tmp/netflix-rss/trace-analysis pdf` folder.
+
