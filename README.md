@@ -1,9 +1,11 @@
 # Netflix-RSS Example with Kieker
 
-As the netflix-RSS example consists of currently three components (`netflix-RSS-eureka`, `netflix-RSS-middletier`, `netflix-RSS-edge`), we need some way to interconnect them in the docker context. To achieve this, we use Docker Compose (https://www.docker.com/docker-compose).
+As the [netflix-RSS](https://github.com/Netflix/recipes-rss/wiki) example consists of currently three components (`netflix-RSS-eureka`, `netflix-RSS-middletier`, `netflix-RSS-edge`), we need some way to interconnect them in the docker context. To achieve this, we use Docker Compose (https://www.docker.com/docker-compose).
 
 Docker Compose makes it easy to pull, start and interconnect several Docker containers by just providing one "recipe".
 In this repository we provide a recipe to set up the netflix-RSS example and this short introduction on how to use it.
+
+We used the [inspectIT Docker setup](https://inspectit-performance.atlassian.net/wiki/display/SAM/Netflix+RSS+Demo+Application) as a reference to set up an example that is similar to theirs but with Kieker instrumentation instead of inspectIT.
 
 ## How to set it up
 
