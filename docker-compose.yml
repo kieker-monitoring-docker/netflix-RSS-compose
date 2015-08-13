@@ -16,6 +16,7 @@ middletier:
   hostname: "middletier"
   links:
     - tomcat:tomcat
+    - rss:rss
   volumes:
     - /tmp/netflix-rss/middletier/logs:/opt/kieker/logs
     - /tmp/netflix-rss/middletier/config:/opt/kieker/config    
@@ -32,3 +33,15 @@ edge:
   volumes:
     - /tmp/netflix-rss/edge/logs:/opt/kieker/logs
     - /tmp/netflix-rss/edge/config:/opt/kieker/config     
+    
+rss:
+  image: kieker/netflix-rss-rss:latest
+  name: rss
+  hostname: "rss"
+  ports:
+    - "80:8080"
+  volumes:
+    - /tmp/netflix-rss/rss/logs:/opt/kieker/logs
+    - /tmp/netflix-rss/rss/config:/opt/kieker/config     
+  
+  
